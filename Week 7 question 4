@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    virtual void study() = 0;
+};
+
+class Undergraduate : public Student {
+public:
+    void study() override {
+        cout << "Undergraduate student studies general subjects." << endl;
+    }
+};
+
+class Postgraduate : public Student {
+public:
+    void study() override {
+        cout << "Postgraduate student studies specialized subjects and research." << endl;
+    }
+};
+
+int main() {
+    Student* s;
+    Undergraduate ug;
+    Postgraduate pg;
+
+    s = &ug;
+    s->study();
+
+    s = &pg;
+    s->study();
+
+    return 0;
+}
